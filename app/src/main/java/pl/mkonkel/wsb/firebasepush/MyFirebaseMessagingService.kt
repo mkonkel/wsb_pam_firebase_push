@@ -15,10 +15,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     private val notificationManager: NotificationManager by lazy {
         applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     }
-
-        /* private val test by lazy {
-             applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-         } */                            //zmienna inicjowana dopiero gry jest użyta
+    
 
         override fun onMessageReceived(remoteMessage: RemoteMessage) {
             super.onMessageReceived(remoteMessage)
