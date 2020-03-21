@@ -3,7 +3,9 @@ package pl.mkonkel.wsb.firebasepush
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.util.Log
 import com.google.firebase.messaging.FirebaseMessagingService
@@ -15,7 +17,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     private val notificationManager: NotificationManager by lazy {
         applicationContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     }
-    
+
 
         override fun onMessageReceived(remoteMessage: RemoteMessage) {
             super.onMessageReceived(remoteMessage)
@@ -26,7 +28,9 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             Log.d("MESSAGE", "title: $title / message: $message")
 
             createNotificationChannel()
-            val notification = buildNotification(title)
+
+            val pendingIntent = createPendingIntent(title, message)
+            val notification = pendingIntent?.let { buildNotification(title, it) }
 
             notificationManager.notify(1, notification)
         }
@@ -48,17 +52,25 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             notificationManager.createNotificationChannel(notificationChannel)
         }
 
-        private fun buildNotification(notificationTitle: String) : Notification {
+        private fun buildNotification(notificationTitle: String, pendingIntent: PendingIntent) : Notification {
             return Notification.Builder(applicationContext, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_pregnant_woman_black_24dp)
                 .setContentTitle("UWAGA!")
                 .setContentText(notificationTitle)
                 .setAutoCancel(true)
+                .setContentIntent(pendingIntent)
                 .build()
         }
 
-//    TODO: Add a helper method for creating the Pending Intent that will allow us to run some activity
-//    If you want to pass the notification to the Activity you must use the Extras
+        private fun createPendingIntent(title: String, message: String?): PendingIntent? {
+            val resultIntent = Intent(this, DetailActivity::class.java)
+
+            resultIntent.putExtra(NOTIFICATION_MESSAGE_TITLE, title)
+            resultIntent.putExtra(NOTIFICATION_MESSAGE_BODY, message)
+            resultIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP)
+
+            return PendingIntent.getActivity(this, 1, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+        }
 
         companion object {
         const val NOTIFICATION_MESSAGE_TITLE = "message_title"
