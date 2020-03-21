@@ -1,14 +1,30 @@
 package pl.mkonkel.wsb.firebasepush
 
+import android.annotation.SuppressLint
+import android.util.Log
+import com.google.firebase.messaging.FirebaseMessagingService
+import com.google.firebase.messaging.RemoteMessage
+
 
 // TODO: Implement your custom Messaging service.
-//class MyFirebaseMessagingService : FirebaseMessagingService() {
+@SuppressLint("Registered")
+class MyFirebaseMessagingService : FirebaseMessagingService() {
 
 //    TODO: Create the NotificationManager here
 
-//    TODO: Override the "onMessageReceived" where we will be handling the PUSH message
+    //    TODO: Override the "onMessageReceived" where we will be handling the PUSH message
+    override fun onMessageReceived(remoteMessage: RemoteMessage) {
+        super.onMessageReceived(remoteMessage)
 
-//    TODO: Add a helper method for creating the Notification Channel
+        val title = remoteMessage.notification?.title //? - uzyj tylko gdy nie jest null
+        val message = remoteMessage.notification?.body
+
+        Log.d("MESSAGE", "title: $title / message: $message ")
+    }
+
+
+
+    //    TODO: Add a helper method for creating the Notification Channel
 //    You will need to provide:
 //    - Channel Id
 //    - Channel Name
@@ -27,8 +43,8 @@ package pl.mkonkel.wsb.firebasepush
 //    TODO: Add a helper method for creating the Pending Intent that will allow us to run some activity
 //    If you want to pass the notification to the Activity you must use the Extras
 
-//    companion object {
-//        const val NOTIFICATION_MESSAGE_TITLE = "message_title"
-//        const val NOTIFICATION_MESSAGE_BODY = "message_body"
-//    }
-//}
+    companion object {
+        const val NOTIFICATION_MESSAGE_TITLE = "message_title"
+        const val NOTIFICATION_MESSAGE_BODY = "message_body"
+    }
+}

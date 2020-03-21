@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "644783340500",
+    "firebase_url": "https://apkweb-fcd6c.firebaseio.com",
+    "project_id": "apkweb-fcd6c",
+    "storage_bucket": "apkweb-fcd6c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:644783340500:android:0c881d567487d5c4513441",
+        "android_client_info": {
+          "package_name": "pl.mkornik.wsb.firebasepush"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "644783340500-slje81hf4vimc3v6ockjt0tgbr6bakpu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCndlZ6y0Zuq2rqCaMwcIJzS3Sf7ttt8w0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "644783340500-slje81hf4vimc3v6ockjt0tgbr6bakpu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
