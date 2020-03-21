@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "616108740519",
+    "firebase_url": "https://dupadupanawet.firebaseio.com",
+    "project_id": "dupadupanawet",
+    "storage_bucket": "dupadupanawet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616108740519:android:b6a1320edce9d01990b082",
+        "android_client_info": {
+          "package_name": "pl.drogala.wsb.firebasepush"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "616108740519-lniu5g5soc41cqo0f4aisd2vek54nt9h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8rS5W6w-uCsCkh1_NzIi2FaWP5cho-cc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "616108740519-lniu5g5soc41cqo0f4aisd2vek54nt9h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
