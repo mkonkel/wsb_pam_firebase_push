@@ -8,8 +8,6 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
 
-// TODO: Add FirebaseInstanceId Callback here
-//        It is goot to log or print the token somewhere - it will be needed later.
         FirebaseInstanceId.getInstance().instanceId
             .addOnCompleteListener {
                 if (!it.isSuccessful) {

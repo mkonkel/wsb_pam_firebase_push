@@ -9,7 +9,6 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
 
-// TODO: Change the applicationID to your own
         applicationId "pl.drogala.wsb.firebasepush"
         minSdkVersion 26
         targetSdkVersion 29
